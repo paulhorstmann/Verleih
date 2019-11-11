@@ -227,6 +227,7 @@ public class Mediothek {
         try{
             File lDatei = new File("./src/sample/stock/ausleihe.csv");
             BufferedReader lReader = new BufferedReader(new FileReader(lDatei));
+            String[] lString = new String[4];
             String st;
             while ((st = lReader.readLine()) != null)
                 System.out.println(st);
