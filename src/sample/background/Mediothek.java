@@ -225,13 +225,18 @@ public class Mediothek {
 
     public void liesAusleihvorgaengeEin(){
         try{
-            File lDatei = new File("./src/sample/stock/ausleihe.csv");
-            BufferedReader lReader = new BufferedReader(new FileReader(lDatei));
-            String[] lString = new String[4];
-            String st;
-            while ((st = lReader.readLine()) != null)
-                System.out.println(st);
-            System.out.println(st.charAt(23));
+            Scanner lScanner = new Scanner(new File("Ausleihen.csv"))) {
+			String[] lStrings;
+			while (lScanner.hasNextLine()) {
+				lStrings = lScanner.nextLine().split(";");
+				Kunde lKunde = gibKunden(Integer.parseInt(lStrings[0]));
+				Medium lMedium = gibMedium(Integer.parseInt(lStrings[1]));
+				long lAusleihdatum = Long.parseLong(lStrings[2]);
+				if(lKunde != null && lMedium != null) {
+					zAusleihen[zAusleihanzahl] = new Leihbeziehung(lKunde, lMedium, lAusleihdatum);
+					zAusleihanzahl++;
+				}
+			}
         }
         catch(Exception e){
             System.out.println("{Error} Datei konnte nicht angelegt werden");
