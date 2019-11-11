@@ -1,11 +1,11 @@
 package sample.background;
 
 public class Medium {
-    int zCode;
-    double zPreis;
-    int zJahr;
-    String zRegal;
-    String zTitel;
+    protected int zCode;
+    protected double zPreis;
+    protected int zJahr;
+    protected String zRegal;
+    protected String zTitel;
 
     public Medium(int pCode, double pPreis, int pJahr, String pRegal, String pTitel){
         zCode = pCode;

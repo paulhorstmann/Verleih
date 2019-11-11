@@ -1,9 +1,10 @@
 package sample.background;
 
 public class Film extends Medium {
-    int zLeange;
-    String zGenre;
-    String[] zSchauspieler = new String[50];
+    private int zLeange;
+    private String zGenre;
+    private int zSchauspieleranzahl;
+    private String[] zSchauspieler = new String[50];
 
     public Film(int pCode, double pPreis, int pJahr, String pRegal, String pTitel ,int pLeange,String pGenre){
         super(pCode,pPreis,pJahr,pRegal,pTitel);
@@ -11,8 +12,9 @@ public class Film extends Medium {
         zGenre = pGenre;
     }
 
-    public void ergaenzeScheuspieler(String pName){
+    public void ergaenzeSchauspieler(String pName){
         for(int i=0; i<zSchauspieler.length; i++){
+            if(zSchauspieler[i].equals(pName))return;
             if(zSchauspieler[i]==null){
                 zSchauspieler[i] = pName;
                 return;

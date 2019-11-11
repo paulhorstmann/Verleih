@@ -1,23 +1,27 @@
 package sample;
 
+
+import static sample.basic.contrans.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sample.background.*;
+import java.util.GregorianCalendar;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+//        Parent root = FXMLLoader.load(getClass().getResource("./assets/fxml/sample.fxml"));
+//        primaryStage.setTitle("Herder Books");
+//        primaryStage.setScene(new Scene(root, 950, 600));
+//        primaryStage.show();
 
-        Buch nMedium = new Buch(23992839,23.34,2002,"E4","Hallo", "Shakespeares", "978-3-86680-192-9");
-        nMedium.gibAllesAufKonsoleAus();
+        test t = new test(true, true, true);
+//        long Zeit = (new GregorianCalendar().getTimeInMillis())/(1000*60*60*24);
+//        System.out.println(Zeit);
     }
 
 

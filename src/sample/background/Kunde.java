@@ -1,12 +1,14 @@
 package sample.background;
 
 public class Kunde {
-    private String zName;
-    private String zAdresse;
-    private double zOffenerBetrag;
+    protected int zKundennummer;
+    protected String zName;
+    protected String zAdresse;
+    protected double zOffenerBetrag;
 
-    public Kunde(String pName, String pAdresse){
+    public Kunde(String pName,int pKundennummer, String pAdresse){
         zName = pName;
+        zKundennummer = pKundennummer;
         zAdresse = pAdresse;
     }
 
@@ -34,9 +36,15 @@ public class Kunde {
         zOffenerBetrag = pBetrag;
     }
 
+    public void setzeKundennummer(int pKundennummer){
+        zKundennummer = pKundennummer;
+    }
+
     public String gibAdresse(){
         return zAdresse;
     }
+
+    public int gibKundennummer(){return zKundennummer;}
 
     public String gibName(){
         return zName;
