@@ -225,24 +225,24 @@ public class Mediothek {
 
     public void liesAusleihvorgaengeEin(){
         try{
-            Scanner lScanner = new Scanner(new File("Ausleihen.csv"))) {
-			String[] lStrings;
-			while (lScanner.hasNextLine()) {
-				lStrings = lScanner.nextLine().split(";");
-				Kunde lKunde = gibKunden(Integer.parseInt(lStrings[0]));
-				Medium lMedium = gibMedium(Integer.parseInt(lStrings[1]));
-				long lAusleihdatum = Long.parseLong(lStrings[2]);
-				if(lKunde != null && lMedium != null) {
-					zAusleihen[zAusleihanzahl] = new Leihbeziehung(lKunde, lMedium, lAusleihdatum);
-					zAusleihanzahl++;
-				}
-			}
+            BufferedReader lLeser = new BufferedReader(new FileReader("./src/sample/stock/ausleihe.csv");
+            String lZeile = "";
+            Kunde lKund;
+            while((lZeile = lLeser.readLine()) {
+                String [] lArray = lLeser.split(";");
+                if(gibKunde(lArray[1]) != null){
+                    if(gibMedium(lArray[] !=
+                } else{
+                    System.out.println("{Error} Die Kundennummer " + lArray[1] " konnte nicht gefunden werden");
+                }
+            
+                
         }
         catch(Exception e){
             System.out.println("{Error} Datei konnte nicht angelegt werden");
             System.out.println("{Debug}" + e);
         }
-    }
+    }%
 
     public void liesKundendatenEin(){
 
@@ -254,7 +254,7 @@ public class Mediothek {
 
     public void speichereAusleihen(){
         try {
-            FileWriter fileWriter = new FileWriter("./src/sample/stock/ausleihe.txt");
+            FileWriter fileWriter = new FileWriter("./src/sample/stock/ausleihe.csv");
             PrintWriter printWriter = new PrintWriter(fileWriter);
             String fileContent = "Index;Kundenname;Mediumtitel;Leihgebühr;Ausleihdatum\n";
 
