@@ -97,7 +97,6 @@ public class Mediothek {
             }
         }
         System.out.println();
-
     }
 
     public void gibKundenAus(int pKundennummer){
@@ -114,8 +113,7 @@ public class Mediothek {
     }
 
     public boolean loescheKunde(int pKundennummer){
-        Kunde lKunde = gibKunden(pKundennummer);
-        if(lKunde== null)return false;
+        if(sucheKunden(pKundennummer) == -1)return false;
         String lName = zKunden[sucheKunden(pKundennummer)].gibName();
         for(int i = sucheKunden(pKundennummer); i<zKundenanzahl; i++)zKunden [i] = zKunden [i+1];
         zKundenanzahl--;
@@ -154,7 +152,7 @@ public class Mediothek {
             System.out.println("\n{Error} " + pName + " ist schon vorhanden und konnte nicht angelegt werden");
             return false;
         }
-        zKunden [zKundenanzahl] = new Kunde(pName, ( zKundenanzahl + 1000), pAdresse);
+        zKunden [zKundenanzahl] = new Kunde(pName, (zKundenanzahl + 1000), pAdresse);
         zKundenanzahl++;
         System.out.println("\n[Kunde] "+ pName + " wurde angelegt");
         return true;
@@ -233,6 +231,8 @@ public class Mediothek {
                 if(gibKunden(Integer.getInteger(lArray[1])) != null){
                     if(gibMedium(Integer.getInteger(lArray[2])) != null){
 
+                    }else{
+                        System.out.println("");
                     }
                 }else{
                     System.out.println("{Error} Kunde mit der Nummer " + lArray[1] + " konnte nicht gefunden werden");
@@ -379,8 +379,6 @@ public class Mediothek {
         }
         System.out.println();
     }
-
-
 
     public boolean verleihen(int pKundennummer, int pMediencode, int pZeitdifferenz){
         if(!istKundeVorhanden(pKundennummer)){
