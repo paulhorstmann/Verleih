@@ -32,8 +32,7 @@ public class Mediothek {
             Film lFilm = (Film) lMedium;
             lFilm.ergaenzeSchauspieler(pName);
             zMedien[sucheMedium(pMedienNr)] = lFilm;
-            System.out.println();
-            System.out.println("Schauspieler: " + pName + "wurde dem Film " + lMedium.gibTitel());
+            System.out.println("\nSchauspieler: " + pName + "wurde dem Film " + lMedium.gibTitel());
         }
         System.out.println("\n{Error} Der Schauspieler: " +pName + "konnte nicht zu dem Medium mit der Nummer: " + pMedienNr + "hinzugefuegt werden");
     }
