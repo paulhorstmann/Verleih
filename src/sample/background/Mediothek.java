@@ -224,25 +224,26 @@ public class Mediothek {
     }
 
     public void liesAusleihvorgaengeEin(){
-        try{
-            BufferedReader lLeser = new BufferedReader(new FileReader("./src/sample/stock/ausleihe.csv");
+        try {
+            BufferedReader lLeser = new BufferedReader(new FileReader("./sample/stock/ausleihe.csv"));
             String lZeile = "";
-            Kunde lKund;
-            while((lZeile = lLeser.readLine()) {
-                String [] lArray = lLeser.split(";");
-                if(gibKunde(lArray[1]) != null){
-                    if(gibMedium(lArray[] !=
-                } else{
-                    System.out.println("{Error} Die Kundennummer " + lArray[1] " konnte nicht gefunden werden");
+            Kunde lKunde;
+            while ((lZeile = lLeser.readLine()) != null) {
+                String[] lArray = lZeile.split(";");
+                if(gibKunden(Integer.getInteger(lArray[1])) != null){
+                    if(gibMedium(Integer.getInteger(lArray[2])) != null){
+
+                    }
+                }else{
+                    System.out.println("{Error} Kunde mit der Nummer " + lArray[1] + " konnte nicht gefunden werden");
                 }
-            
-                
+            }
         }
         catch(Exception e){
-            System.out.println("{Error} Datei konnte nicht angelegt werden");
-            System.out.println("{Debug}" + e);
+                System.out.println("{Error} Datei konnte nicht angelegt werden");
+                System.out.println("{Debug}" + e);
         }
-    }%
+    }
 
     public void liesKundendatenEin(){
 
@@ -317,7 +318,7 @@ public class Mediothek {
         }
     }
 
-    public Kunde gibKuden(int pKundennummer){
+    public Kunde gibKunden(int pKundennummer){
         for(int i = 0; i<zKundenanzahl; i++)
             if(zKunden[i].gibKundennummer() == pKundennummer)
                 return zKunden[i];
@@ -360,18 +361,11 @@ public class Mediothek {
         return -1;
     }
 
-    private Kunde gibKunden(int pKundennummer){
-        for(int i = 0; i<zKundenanzahl; i++)
-            if(zKunden[i].gibKundennummer() == (pKundennummer))
-                return zKunden[i];
-        return null;
-    }
-
     private boolean istKundeVorhanden(String pName){
         for(int i = 0; i<zKundenanzahl; i++)
             if(zKunden[i].gibName().equals(pName))
                 return true;
-        return false;
+            return false;
     }
 
     private boolean istKundeVorhanden(int pKundennummer){
